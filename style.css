@@ -65,112 +65,61 @@ select {
     display: inline-flex;
     align-items: flex-end;
     position: relative;
-
     height: 58px;
-
     line-height: 0.72;
-
     transform: rotate(-4deg);
-
     cursor: pointer;
-
     padding-right: 5px;
 }
-
-
-/* ---------------------------------------------------------
-   W
-   Strong, wide and dominant
---------------------------------------------------------- */
 
 .logo-w {
     position: relative;
     z-index: 1;
-
     font-family: "DM Serif Display", Georgia, serif;
-
     font-size: 66px;
     font-weight: 400;
     font-style: italic;
-
     color: #ff6b35;
-
     letter-spacing: -8px;
-
     line-height: 0.72;
-
     display: inline-block;
-
-    transform:
-        skewX(-7deg)
-        scaleX(1.08);
+    transform: skewX(-7deg) scaleX(1.08);
 }
-
-
-/*
-   Curved finishing stroke.
-   This gives the W a little signature of its own.
-*/
 
 .logo-w::after {
     content: "";
-
     position: absolute;
-
     right: -1px;
     bottom: 4px;
-
     width: 31px;
     height: 20px;
-
     border-right: 5px solid #ff6b35;
     border-bottom: 5px solid #ff6b35;
-
     border-radius: 0 0 20px 0;
-
     transform: rotate(-15deg);
-
     z-index: -1;
 }
-
-
-/* ---------------------------------------------------------
-   e
-   Deliberately much larger and more visible
---------------------------------------------------------- */
 
 .logo-e {
     position: relative;
     z-index: 5;
-
     font-family: "DM Serif Display", Georgia, serif;
-
     font-size: 65px;
     font-weight: 500;
     font-style: italic;
-
     color: #222222;
-
     letter-spacing: -8px;
-
     line-height: -2;
-
     display: inline-block;
-
-    /*
-       Pull the e into the W so they feel like
-       one mark rather than two separate letters.
-    */
     margin-left: -11px;
-
     margin-bottom: 1px;
-
-    transform:
-        rotate(-9deg)
-        skewX(-5deg);
+    transform: rotate(-9deg) skewX(-5deg);
 }
 
-/* Navigation links */
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
 
 .navbar nav {
     display: flex;
@@ -197,10 +146,8 @@ select {
 .hero {
     min-height: 85vh;
     padding: 110px 8%;
-
     display: flex;
     align-items: center;
-
     background:
         radial-gradient(
             circle at 85% 20%,
@@ -245,18 +192,13 @@ select {
 
 .primary-button {
     display: inline-block;
-
     padding: 14px 24px;
-
     border: none;
     border-radius: 50px;
-
     background: #222222;
     color: #ffffff;
-
     font-weight: 700;
     cursor: pointer;
-
     transition:
         transform 0.2s ease,
         background 0.2s ease;
@@ -270,15 +212,11 @@ select {
 .secondary-button {
     border: none;
     border-radius: 50px;
-
     padding: 14px 24px;
-
     background: #eeeeee;
     color: #333333;
-
     font-weight: 700;
     cursor: pointer;
-
     transition:
         transform 0.2s ease,
         background 0.2s ease;
@@ -305,14 +243,10 @@ section {
 
 .section-label {
     display: inline-block;
-
     margin-bottom: 12px;
-
     color: #ff6b35;
-
     font-size: 13px;
     font-weight: 800;
-
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -360,10 +294,8 @@ section p {
 .community-grid {
     max-width: 1100px;
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
     gap: 24px;
 }
 
@@ -371,7 +303,6 @@ section p {
     background: #ffffff;
     padding: 35px;
     border-radius: 22px;
-
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
@@ -417,7 +348,6 @@ section p {
 .stories .community-card {
     border-top: 5px solid #ff6b35;
     background: #ffffff;
-
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
@@ -451,9 +381,7 @@ section p {
         #ff6b35,
         #ff5f6d
     );
-
     color: #ffffff;
-
     padding: 100px 8%;
 }
 
@@ -516,23 +444,17 @@ section p {
 .gallery-grid {
     max-width: 1000px;
     margin: 0 auto;
-
     display: grid;
-
     grid-template-columns: 1.2fr 0.8fr;
     grid-template-rows: 220px 220px;
-
     gap: 18px;
 }
 
 .gallery-item {
     min-height: 0;
     height: 220px;
-
     overflow: hidden;
-
     border-radius: 20px;
-
     background: #eeeeee;
 }
 
@@ -544,10 +466,8 @@ section p {
 .gallery-item img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     display: block;
-
     transition: transform 0.4s ease;
 }
 
@@ -573,34 +493,27 @@ section p {
 .video-grid {
     max-width: 1100px;
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
     gap: 22px;
 }
 
 .video-card {
     background: #ffffff;
-
     border-radius: 22px;
     overflow: hidden;
-
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 .video-placeholder {
     position: relative;
-
     height: 210px;
-
     background:
         linear-gradient(
             135deg,
             #ff6b35,
             #ff5f6d
         );
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -627,20 +540,14 @@ section p {
 .play-button {
     width: 65px;
     height: 65px;
-
     border-radius: 50%;
-
     background: #ffffff;
     color: #ff6b35;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 25px;
-
     padding-left: 4px;
-
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
 }
 
@@ -690,13 +597,10 @@ section p {
 
 .join-step {
     display: none;
-
+    position: relative;
     background: #ffffff;
-
     padding: 40px;
-
     border-radius: 25px;
-
     box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.06);
 }
@@ -722,18 +626,12 @@ section p {
 .join-step > input:not([type="checkbox"]):not([type="radio"]),
 .join-step > textarea {
     width: 100%;
-
     padding: 14px 16px;
-
     margin-bottom: 16px;
-
     border: 1px solid #dddddd;
     border-radius: 12px;
-
     font-size: 16px;
-
     outline: none;
-
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
@@ -742,7 +640,6 @@ section p {
 .join-step > input:not([type="checkbox"]):not([type="radio"]):focus,
 .join-step > textarea:focus {
     border-color: #ff6b35;
-
     box-shadow:
         0 0 0 3px rgba(255, 107, 53, 0.12);
 }
@@ -755,7 +652,6 @@ section p {
 
 /* =========================================================
    STEP 2
-   VERTICAL ABOUT-YOU DESIGN
 ========================================================= */
 
 .about-step {
@@ -766,60 +662,44 @@ section p {
             #fff9f5 65%,
             #f7f4ff 100%
         );
-
     border: 1px solid rgba(255, 107, 53, 0.08);
 }
-
-
-/* Step heading */
 
 .step-heading {
     display: flex;
     align-items: flex-start;
     gap: 17px;
-
     margin-bottom: 32px;
 }
 
 .step-number {
     flex-shrink: 0;
-
     width: 45px;
     height: 45px;
-
     border-radius: 14px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: #ff6b35;
     color: #ffffff;
-
     font-size: 13px;
     font-weight: 900;
     letter-spacing: 1px;
-
     box-shadow:
         0 8px 18px rgba(255, 107, 53, 0.2);
 }
 
 .step-heading h3 {
     margin: 0 0 7px;
-
     font-size: 29px;
     line-height: 1.15;
 }
 
 .step-heading p {
     margin: 0;
-
     color: #666666;
     font-size: 15px;
 }
-
-
-/* Each field is full width and stacked */
 
 .form-field {
     width: 100%;
@@ -828,15 +708,10 @@ section p {
 
 .form-field label {
     display: block;
-
     margin-bottom: 8px;
-
     font-size: 15px;
     font-weight: 800;
 }
-
-
-/* Different subtle colors for each field */
 
 .field-age label {
     color: #ff6b35;
@@ -850,28 +725,17 @@ section p {
     color: #19a974;
 }
 
-
-/* Inputs */
-
 .form-field input,
 .form-field textarea {
     display: block;
-
     width: 100%;
-
     padding: 15px 17px;
-
     border: 1px solid #dddddd;
     border-radius: 14px;
-
     background: rgba(255, 255, 255, 0.9);
-
     color: #222222;
-
     font-size: 16px;
-
     outline: none;
-
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease,
@@ -881,9 +745,7 @@ section p {
 .form-field input:focus,
 .form-field textarea:focus {
     transform: translateY(-1px);
-
     border-color: #ff6b35;
-
     box-shadow:
         0 0 0 4px rgba(255, 107, 53, 0.1);
 }
@@ -892,9 +754,6 @@ section p {
     min-height: 145px;
     resize: vertical;
 }
-
-
-/* Keep browser age +/- controls */
 
 .field-age input {
     appearance: auto;
@@ -908,15 +767,16 @@ section p {
 .join-buttons {
     display: flex;
     align-items: center;
-
     gap: 12px;
-
     margin-top: 28px;
 }
 
 .join-buttons .primary-button,
 .join-buttons .secondary-button {
     min-width: 110px;
+    position: relative;
+    z-index: 5;
+    pointer-events: auto;
 }
 
 
@@ -928,17 +788,11 @@ section p {
     display: flex;
     align-items: center;
     gap: 10px;
-
     padding: 13px 15px;
-
     margin-bottom: 10px;
-
     background: #f7f3ee;
-
     border-radius: 12px;
-
     cursor: pointer;
-
     transition:
         background 0.2s ease,
         transform 0.2s ease;
@@ -961,9 +815,7 @@ section p {
 
 .form-message {
     color: #e53935 !important;
-
     font-size: 14px !important;
-
     margin-top: -8px;
     margin-bottom: 12px !important;
 }
@@ -975,7 +827,6 @@ section p {
 
 #step7 {
     text-align: center;
-
     padding: 60px 35px;
 }
 
@@ -990,14 +841,23 @@ section p {
 
 
 /* =========================================================
+   HERO BUTTON SAFETY
+========================================================= */
+
+#heroJoinButton {
+    position: relative;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
    FOOTER
 ========================================================= */
 
 .footer {
     padding: 50px 30px;
-
     text-align: center;
-
     background: #222222;
     color: #ffffff;
 }
@@ -1021,8 +881,55 @@ section p {
 
 .footer p {
     margin: 10px 0;
-
     color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================================================
+   FOOTER LINKS
+========================================================= */
+
+.footer-links {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+}
+
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+
+.footer-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.footer-email {
+    margin-top: 22px;
+}
+
+.footer-copy {
+    margin-top: 8px;
 }
 
 
@@ -1036,9 +943,6 @@ section p {
         padding: 70px 20px;
     }
 
-
-    /* Navigation */
-
     .navbar {
         padding: 12px 20px;
     }
@@ -1051,24 +955,18 @@ section p {
         font-size: 11px;
     }
 
-
-    /* Logo */
-
     .logo {
-    height: 47px;
-}
+        height: 47px;
+    }
 
-.logo-w {
-    font-size: 54px;
-}
+    .logo-w {
+        font-size: 54px;
+    }
 
-.logo-e {
-    font-size: 35px;
-    margin-left: -6px;
-}
-
-
-    /* Hero */
+    .logo-e {
+        font-size: 35px;
+        margin-left: -6px;
+    }
 
     .hero {
         min-height: 80vh;
@@ -1084,15 +982,9 @@ section p {
         font-size: 17px;
     }
 
-
-    /* Cards */
-
     .community-grid {
         grid-template-columns: 1fr;
     }
-
-
-    /* Gallery */
 
     .gallery {
         padding: 60px 20px;
@@ -1110,9 +1002,6 @@ section p {
         grid-row: auto;
     }
 
-
-    /* Videos */
-
     .video-grid {
         grid-template-columns: 1fr;
     }
@@ -1120,9 +1009,6 @@ section p {
     .video-placeholder {
         height: 230px;
     }
-
-
-    /* Join */
 
     .join-step {
         padding: 28px 20px;
@@ -1171,20 +1057,18 @@ section p {
         font-size: 9px;
     }
 
-
     .logo {
-    height: 44px;
-}
+        height: 44px;
+    }
 
-.logo-w {
-    font-size: 51px;
-}
+    .logo-w {
+        font-size: 51px;
+    }
 
-.logo-e {
-    font-size: 36px;
-    margin-left: -6px;
-}
-
+    .logo-e {
+        font-size: 36px;
+        margin-left: -6px;
+    }
 
     .hero h1 {
         font-size: 45px;
@@ -1194,11 +1078,9 @@ section p {
         font-size: 36px;
     }
 
-
     .community-card {
         padding: 26px;
     }
-
 
     .step-heading {
         align-items: flex-start;
@@ -1207,9 +1089,7 @@ section p {
     .step-number {
         width: 37px;
         height: 37px;
-
         border-radius: 11px;
-
         font-size: 11px;
     }
 
@@ -1222,55 +1102,11 @@ section p {
     }
 
 }
-/* =========================
-   FOOTER LINKS
-========================= */
-
-.footer-links {
-    margin-top: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px 28px;
-}
-
-.footer-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: inherit;
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.footer-links a:hover {
-    opacity: 0.7;
-    transform: translateY(-2px);
-}
-
-.footer-icon {
-    width: 24px;
-    height: 24px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-.footer-email {
-    margin-top: 22px;
-}
-
-.footer-copy {
-    margin-top: 8px;
-}
 
 
-/* =========================
+/* =========================================================
    MOBILE FOOTER
-========================= */
+========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1283,31 +1119,4 @@ section p {
         font-size: 14px;
     }
 
-}
-```
-
-/* =========================================================
-   JOIN FORM INTERACTION SAFETY
-========================================================= */
-
-.join-step {
-    position: relative;
-}
-
-.join-step.active {
-    display: block;
-}
-
-.join-buttons button,
-.primary-button,
-.secondary-button {
-    position: relative;
-    z-index: 5;
-    pointer-events: auto;
-}
-
-#heroJoinButton {
-    position: relative;
-    z-index: 5;
-    pointer-events: auto;
 }

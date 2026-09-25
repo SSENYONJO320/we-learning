@@ -1,21 +1,20 @@
-```javascript
 document.addEventListener("DOMContentLoaded", function () {
 
     console.log("WE website loaded successfully.");
     console.log("WE Join system starting...");
 
 
-    /* =========================================
-       GOOGLE SHEETS CONNECTION
-    ========================================= */
+    /* =========================================================
+       GOOGLE SHEETS
+    ========================================================= */
 
     const GOOGLE_SHEETS_URL =
         "https://script.google.com/macros/s/AKfycbztYwGOawoebwMmyRnwjuseuSNphMgmeNdFpAJi4G772CqE4HArd-Xvq2w4WKERZEs19g/exec";
 
 
-    /* =========================================
+    /* =========================================================
        STEP CONTROL
-    ========================================= */
+    ========================================================= */
 
     function showStep(number) {
 
@@ -29,7 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("step" + number);
 
         if (!targetStep) {
-            console.error("Step " + number + " was not found.");
+            console.error(
+                "Step " + number + " was not found."
+            );
             return;
         }
 
@@ -48,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================================
+    /* =========================================================
        GET CHECKBOX VALUES
-    ========================================= */
+    ========================================================= */
 
     function getCheckedValues(name) {
 
@@ -67,9 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================================
-       NAME STEP
-    ========================================= */
+    /* =========================================================
+       STEP 1
+    ========================================================= */
 
     const startButton =
         document.getElementById("startJoinButton");
@@ -81,21 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("nameMessage");
 
 
-    if (!startButton) {
-
-        console.error(
-            "startJoinButton was not found."
-        );
-
-    } else {
-
-        console.log(
-            "Continue button found."
-        );
-
-    }
-
-
     if (startButton) {
 
         startButton.addEventListener(
@@ -104,38 +90,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-                if (!nameInput) {
-
-                    console.error(
-                        "Name input was not found."
-                    );
-
-                    return;
-                }
-
                 const name =
-                    nameInput.value.trim();
+                    nameInput
+                        ? nameInput.value.trim()
+                        : "";
 
 
                 if (name === "") {
 
                     if (nameMessage) {
-
                         nameMessage.textContent =
                             "Please enter your name.";
-
                     }
 
-                    nameInput.focus();
+                    if (nameInput) {
+                        nameInput.focus();
+                    }
 
                     return;
                 }
 
 
                 if (nameMessage) {
-
                     nameMessage.textContent = "";
-
                 }
 
 
@@ -144,12 +121,18 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         );
 
+    } else {
+
+        console.error(
+            "startJoinButton was not found."
+        );
+
     }
 
 
-    /* =========================================
+    /* =========================================================
        NEXT BUTTONS
-    ========================================= */
+    ========================================================= */
 
     document
         .querySelectorAll(".nextButton")
@@ -181,9 +164,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-    /* =========================================
+    /* =========================================================
        BACK BUTTONS
-    ========================================= */
+    ========================================================= */
 
     document
         .querySelectorAll(".backButton")
@@ -215,9 +198,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-    /* =========================================
+    /* =========================================================
        FINISH BUTTON
-    ========================================= */
+       
+       IMPORTANT:
+       The user reaches Step 7 immediately.
+       Google Sheets submission happens separately.
+       ========================================================= */
 
     const finishButton =
         document.getElementById("finishButton");
@@ -227,14 +214,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         finishButton.addEventListener(
             "click",
-            async function (event) {
+            function (event) {
 
                 event.preventDefault();
 
 
-                /* -------------------------
-                   WHATSAPP
-                ------------------------- */
+                /* -----------------------------------------
+                   WHATSAPP NUMBER
+                ----------------------------------------- */
 
                 const whatsappInput =
                     document.getElementById("whatsapp");
@@ -266,9 +253,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                /* -------------------------
-                   COLLECT FORM DATA
-                ------------------------- */
+                /* -----------------------------------------
+                   COLLECT ALL FORM DATA
+                ----------------------------------------- */
 
                 const name =
                     document
@@ -349,122 +336,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         .trim();
 
 
-                /* -------------------------
-                   PREPARE GOOGLE SHEETS DATA
-                ------------------------- */
-
-                const formData =
-                    new URLSearchParams();
-
-
-                formData.append(
-                    "name",
-                    name
-                );
-
-
-                formData.append(
-                    "age",
-                    age
-                );
-
-
-                formData.append(
-                    "location",
-                    location
-                );
-
-
-                formData.append(
-                    "about",
-                    about
-                );
-
-
-                formData.append(
-                    "interests",
-                    interests
-                );
-
-
-                formData.append(
-                    "skills",
-                    skills
-                );
-
-
-                formData.append(
-                    "participation",
-                    participation
-                );
-
-
-                formData.append(
-                    "whatsapp",
-                    whatsapp
-                );
-
-
-                formData.append(
-                    "extra",
-                    anythingElse
-                );
-
-
-                /* -------------------------
-                   TEMPORARILY DISABLE BUTTON
-                ------------------------- */
-
-                finishButton.disabled = true;
-
-                finishButton.textContent =
-                    "Sending...";
-
-
-                /* -------------------------
-                   SEND TO GOOGLE SHEETS
-                ------------------------- */
-
-                try {
-
-                    await fetch(
-                        GOOGLE_SHEETS_URL,
-                        {
-                            method: "POST",
-                            mode: "no-cors",
-                            body: formData
-                        }
-                    );
-
-
-                    console.log(
-                        "Registration sent to Google Sheets."
-                    );
-
-
-                } catch (error) {
-
-                    console.error(
-                        "Google Sheets error:",
-                        error
-                    );
-
-                    alert(
-                        "We could not save your registration right now. Please try again."
-                    );
-
-                    finishButton.disabled = false;
-
-                    finishButton.textContent =
-                        "Finish";
-
-                    return;
-                }
-
-
-                /* -------------------------
-                   FINAL STEP
-                ------------------------- */
+                /* -----------------------------------------
+                   SHOW FINAL STEP FIRST
+                ----------------------------------------- */
 
                 const finalName =
                     document.getElementById("finalName");
@@ -478,23 +352,114 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                finishButton.disabled = false;
-
-                finishButton.textContent =
-                    "Finish";
-
-
                 showStep(7);
 
+
+                /* -----------------------------------------
+                   PREPARE GOOGLE SHEETS DATA
+                ----------------------------------------- */
+
+                const formData =
+                    new URLSearchParams();
+
+
+                formData.append(
+                    "name",
+                    name
+                );
+
+                formData.append(
+                    "age",
+                    age
+                );
+
+                formData.append(
+                    "location",
+                    location
+                );
+
+                formData.append(
+                    "about",
+                    about
+                );
+
+                formData.append(
+                    "interests",
+                    interests
+                );
+
+                formData.append(
+                    "skills",
+                    skills
+                );
+
+                formData.append(
+                    "participation",
+                    participation
+                );
+
+                formData.append(
+                    "whatsapp",
+                    whatsapp
+                );
+
+                formData.append(
+                    "extra",
+                    anythingElse
+                );
+
+
+                /* -----------------------------------------
+                   SEND TO GOOGLE SHEETS
+                   
+                   This does NOT control the form navigation.
+                ----------------------------------------- */
+
+                fetch(
+                    GOOGLE_SHEETS_URL,
+                    {
+                        method: "POST",
+                        mode: "no-cors",
+                        body: formData
+                    }
+                )
+                .then(function () {
+
+                    console.log(
+                        "Registration sent to Google Sheets."
+                    );
+
+                })
+                .catch(function (error) {
+
+                    console.error(
+                        "Google Sheets submission error:",
+                        error
+                    );
+
+                });
+
+
+                console.log(
+                    "Registration completed for:",
+                    name
+                );
+
             }
+        );
+
+    } else {
+
+        console.error(
+            "finishButton was not found."
         );
 
     }
 
 
-    /* =========================================
-       ENTER KEY ON NAME FIELD
-    ========================================= */
+    /* =========================================================
+       ENTER KEY ON NAME
+    ========================================================= */
 
     if (nameInput) {
 
@@ -507,9 +472,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     event.preventDefault();
 
                     if (startButton) {
-
                         startButton.click();
-
                     }
 
                 }
@@ -520,11 +483,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================================
-       HERO BUTTON
-       JavaScript enhancement only.
-       HTML href still works if JS fails.
-    ========================================= */
+    /* =========================================================
+       HERO JOIN BUTTON
+    ========================================================= */
 
     const heroJoinButton =
         document.getElementById("heroJoinButton");
@@ -562,9 +523,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================================
+    /* =========================================================
        START ON STEP 1
-    ========================================= */
+    ========================================================= */
 
     showStep(1);
 
@@ -574,4 +535,3 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
-```
